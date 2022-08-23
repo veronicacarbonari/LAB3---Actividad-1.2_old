@@ -12,15 +12,15 @@ Numero_Cliente bigint not null
 )
 GO
 
-Create table Ventas(
-ID_Venta int not null foreign key references Venta(ID),
-ID_Producto bigint not null primary key,
+Create table Detalle_Ventas(
+ID_Venta int primary key foreign key references Venta(ID),
+ID_Producto int not null foreign key references Productos(ID),
 Cantidad int not null
 )
 GO
 
 Create table Productos(
-IDProducto bigint not null foreign key references Ventas(ID_Producto),
+ID int Primary Key,
 Descripcion varchar(50)not null,
 PrecioVenta int not null,
 NumeroProveedor int not null,
